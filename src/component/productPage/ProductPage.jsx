@@ -1,11 +1,20 @@
-import React from 'react'
-import { data } from '../../data'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './productPage.css'; 
 
-const productPage = () => {
-    console.log(data.mobileData.map((data) => data))
+const ProductPage = () => {
     return (
-        <div></div>
-    )
+        <nav className="navbar">
+            <div className="nav-links">
+                <NavLink to="/mobile" className="nav-link">
+                    Mobile
+                </NavLink>
+                <NavLink to="/laptop" className="nav-link">
+                    Laptop
+                </NavLink>
+            </div>
+        </nav>
+    );
 }
 
-export default productPage
+export default ProductPage;
