@@ -6,6 +6,7 @@ import { MobileData } from './component/productPage/mobileData';
 import { LaptopData } from './component/productPage/LaptopData';
 import Navbar from './component/Navbar/Navbar';
 import Cart from './component/Cart/Cart';
+import ProductDetails from './component/productDetails/ProductDetails';
 function App() {
   
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path='/mobile' element={<MobileData/>}/>
         <Route path='/laptop' element={<LaptopData/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/laptop/:productDetails' element={<ProductDetails/>}/>
+        <Route path='/mobile/:productDetails' element={<ProductDetails/>}/>
       </Routes>
     </div>
   );

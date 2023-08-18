@@ -1,0 +1,19 @@
+
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.star-icons {
+    font-size: 24px;
+    color: #f7ca18; 
+    margin-right: 4px; 
+}
+
+.numerical-rating {
+    font-size: 18px;
+    color: #333; 
+    margin-left: 6px; 
+}
