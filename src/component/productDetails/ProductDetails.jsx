@@ -1,10 +1,14 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './productDetail.css'
 import StarRating from '../Ratings/StarRatings';
 
 const ProductDetails = () => {
+
+    
+
     const productData = useSelector(state => state.productsData);
     const miData = productData.mobileData.midata;
     const realmeData = productData.mobileData.realmedata;
@@ -40,7 +44,7 @@ const ProductDetails = () => {
                     </ul>
                 </div>
                 <div className="buttons-container">
-                    <button className="add-to-cart-btn">Add to Cart</button>
+                    <button className="add-to-cart-btn" >Add to Cart</button>
                     <button className="buy-now-btn">Buy Now</button>
                 </div>
             </div>

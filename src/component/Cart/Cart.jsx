@@ -1,26 +1,17 @@
 import React, { useState } from 'react';
 import './cart.css';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const ShoppingCart = () => {
 
-    const itemArray = [
-        {
-          id: 1,
-          productImage: 'product1.jpg',
-          productName: 'Sample Product 1',
-          price: 600,
-        },
-        {
-          id: 2,
-          productImage: 'product2.jpg',
-          productName: 'Sample Product 2',
-          price: 800,
-        },  
-      ]
-  const [items, setItems] = useState(itemArray);
+    const Navigate = useNavigate()
+
+    const cartItems = useSelector(state => state.cartReducer.items)
+    console.log(cartItems)
 
   const [deliveryAddress, setDeliveryAddress] = useState('');
-  const [quantity, setQuantity] = useState();
+  
   const deliveryCharge = 60;
   const totalSaving = 100;
 
@@ -30,28 +21,29 @@ const ShoppingCart = () => {
 
   const calculateTotalPrice = () => {
     const itemQuantity = 1;
-    const totalPrice = items.reduce((acc, item) => {
-        console.log(acc)
-      return acc + (item.price * itemQuantity);
+    const totalPrice = cartItems.reduce((acc, item) => {
+        
+      return acc + (+item.sellingPrice.replace(/[₹,]/g, '') * itemQuantity);
     }, 0);
 
+    
     return totalPrice + deliveryCharge;
   };
 
   const handleCheckout = () => {
-    //
+      Navigate('/login')
   };
 
   return (
     <div className="shopping-cart-container">
       <div className="cart-items">
         <h1>Your Shopping Cart</h1>
-        {items.map((item) => (
-          <div key={item.id} className="cart-item">
-            <img src={item.productImage} alt={item.productName} className="product-image" />
+        {cartItems.map((item) => (
+          <div key={item.indexValue} className="cart-item">
+            <img src={item.images[0]} alt={item.productName} className="productcart-image" />
             <div className="item-details">
-              <h2 className="product-name">{item.productName}</h2>
-              <p className="product-price">{item.price}</p>
+              <h2 className="product-name">{item.title}</h2>
+              <p className="product-price">{item.sellingPrice}</p>
               <div className="quantity-controls">
                 <button
                   className="quantity-button"

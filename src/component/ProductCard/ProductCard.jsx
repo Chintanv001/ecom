@@ -2,14 +2,21 @@ import React from 'react';
 import './productCard.css';
 import StarRating from '../Ratings/StarRatings';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const ProductCard = ({ product , category}) => {
-
+    const dispatch = useDispatch()
     const Navigate = useNavigate()
 
     const handleClick = () => {
         Navigate(`/${category}/${encodeURIComponent(product.title)}`)
     }
+
+    const handleAddToCart = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        dispatch({ type: 'ADD_TO_CART', payload: product });
+      };
 
     return (
         
@@ -25,7 +32,7 @@ const ProductCard = ({ product , category}) => {
             </div>
             <div className="buttons">
                 <button className="buy-button">Buy Now</button>
-                <button className="cart-button">Add to Cart</button>
+                <button className="cart-button" onClick={handleAddToCart}>Add to Cart</button>
             </div>
         </div>
         
