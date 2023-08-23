@@ -1,0 +1,54 @@
+
+.filter-modal {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.button-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.apply-button,
+.cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.apply-button {
+    background-color: #007bff;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.cancel-button {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* Style checkboxes */
+.filter-section input[type="checkbox"] {
+    margin-right: 5px;
+}

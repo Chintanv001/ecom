@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 import './cart.css';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import LoginPopup from '../PopupComp/Popup';
-import SignupPopup from '../PopupComp/SignupPopUp';
-import Login from '../Login/Login';
-import Signup from '../Signup/Signup';
-import Modal from 'react-modal';
+import AuthModal from '../Modal/AuthModal';
 
-Modal.setAppElement('#root');
 
 const ShoppingCart = () => {
 
@@ -97,23 +92,12 @@ const ShoppingCart = () => {
                 </button>
 
             </div>
-            <Modal
+            <AuthModal
                 isOpen={showModal}
-                onRequestClose={closeModal}
-                contentLabel="Login/Signup Modal"
-                className="modal-content"
-                overlayClassName="modal-overlay"
-            >
-                {/* Modal content */}
-                <button className="modal-close" onClick={closeModal}>
-                    &times;
-                </button>
-                {showLogin ? (
-                    <Login onClose={closeModal} onSignupClick={toggleModalContent} />
-                ) : (
-                    <Signup onClose={closeModal} onLoginClick={toggleModalContent} />
-                )}
-            </Modal>
+                onClose={closeModal}
+                showLogin={showLogin}
+                toggleModalContent={toggleModalContent}
+            />
         </div>
     );
 };
