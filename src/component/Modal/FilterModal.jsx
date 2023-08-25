@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import './filterModal.css'; // Import your CSS file for styling
+import './filterModal.css'; 
 import { useDispatch } from 'react-redux';
 
 const FilterModal = ({ isOpen, onRequestClose, onApplyFilters }) => {
@@ -13,7 +13,7 @@ const FilterModal = ({ isOpen, onRequestClose, onApplyFilters }) => {
             GPU: ["Adreno 610", "ARM Mali-G72 MP3 at 800MHz", "GE8320", "Adreno 505 at 650 MHz", "Adreno 505", "Adreno 512", "Adreno 612"],
             Resolution: ["720 x 1600 Pixels", "1520 x 720 pixels", "1560 x 720 pixels", "1440 x 720 pixels", "2340 x 1080 pixels"]
         },
-        // Add more categories like Laptop, etc.
+        
     };
 
 
@@ -25,7 +25,7 @@ const FilterModal = ({ isOpen, onRequestClose, onApplyFilters }) => {
     const [selectedSize, setSelectedSize] = useState([]);
     const [selectedGPU, setSelectedGPU] = useState([]);
     const [selectedResolution, setSelectedResolution] = useState([]);
-    // Add more state variables for other filters
+    
 
 
     const filteredObject = {

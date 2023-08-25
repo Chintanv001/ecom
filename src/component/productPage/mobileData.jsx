@@ -16,10 +16,10 @@ export const MobileData = () => {
 
     const products = [...miData, ...realmeData];
 
-    console.log(filterData.filteredObject.Brands)
+    
 
 
-    console.log(
+    const filterdedProduct = 
         products.filter((data) => {
           const brandsFilter = filterData?.filteredObject?.Brands;
           const ramFilter = filterData?.filteredObject?.RAM;
@@ -34,12 +34,23 @@ export const MobileData = () => {
           const ramCondition = !ramFilter || 
             (ramFilter.length > 0 && (data.Specification.RAM === ramFilter[0] || data.Specification.RAM === ramFilter[1] || data.Specification.RAM === ramFilter[2]));
 
-          const storageCondition = !ramFilter || 
-            (ramFilter.length > 0 && (data.Specification.RAM === ramFilter[0] || data.Specification.RAM === ramFilter[1] || data.Specification.RAM === ramFilter[2]));
+          const storageCondition = !storageFilter || 
+            (storageFilter.length > 0 && (data.Specification.Storage === storageFilter[0] || data.Specification.Storage === storageFilter[1] || data.Specification.Storage === storageFilter[2]));
+
+          const sizeCondition = !sizeFilter || 
+            (sizeFilter.length > 0 && (data.Specification.Size === sizeFilter[0] || data.Specification.Size === sizeFilter[1] || data.Specification.Size === sizeFilter[2] || data.Specification.Size === sizeFilter[3] || data.Specification.Size === sizeFilter[4]));
+
+          const gpuCondition = !gpuFilter || 
+            (gpuFilter.length > 0 && (data.Specification.GPU === gpuFilter[0] || data.Specification.GPU === gpuFilter[1] || data.Specification.GPU === gpuFilter[2] || data.Specification.GPU === gpuFilter[3] || data.Specification.GPU === gpuFilter[4] || data.Specification.GPU === gpuFilter[5] || data.Specification.GPU === gpuFilter[6]));
+
+            const resolutionCondition = !resolutionFilter || 
+            (resolutionFilter.length > 0 && (data.Specification.Resolution === resolutionFilter[0] || data.Specification.Resolution === resolutionFilter[1] || data.Specification.Resolution === resolutionFilter[2] || data.Specification.Resolution === resolutionFilter[3] || data.Specification.Resolution === resolutionFilter[4]));
           
-          return brandCondition && ramCondition;
+          return brandCondition && ramCondition && storageCondition && sizeCondition && gpuCondition && resolutionCondition ;
         })
-      );
+      ;
+
+      console.log(filterdedProduct)
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -51,7 +62,7 @@ export const MobileData = () => {
 
     const applyFilters = () => {
         closeModal();
-        // Apply filter logic here
+        // 
     };
 
 
@@ -61,7 +72,7 @@ export const MobileData = () => {
         <div>
             <button className="add-filter-button" onClick={openModal}>Add Filter</button>
             <div className='product-card-container'>
-                {products.map((product) => (
+                {filterdedProduct.map((product) => (
 
                     <ProductCard key={product.title} product={product} category="mobile" />
 
